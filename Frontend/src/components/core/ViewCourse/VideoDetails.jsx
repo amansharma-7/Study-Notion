@@ -49,6 +49,7 @@ const VideoDetails = () => {
   };
 
   const handleLectureCompletion = async () => {
+    // console.log("aman");
     setLoading(true);
     const res = await markLectureAsComplete(
       { courseId, subsectionId: subSectionId },
@@ -96,14 +97,14 @@ const VideoDetails = () => {
               {!completedLectures.includes(subSectionId) && (
                 <IconBtn
                   disabled={loading}
-                  onClick={handleLectureCompletion}
+                  onclick={handleLectureCompletion}
                   text={loading ? "Loading..." : "Mark As Completed"}
                   customClasses="text-xl max-w-max px-4 mx-auto"
                 />
               )}
               <IconBtn
                 disabled={loading}
-                onClick={() => {
+                onclick={() => {
                   playerRef.current?.seekTo(0);
                   setVideoEnded(false);
                   setPlaying(true);
