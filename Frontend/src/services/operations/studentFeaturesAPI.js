@@ -61,13 +61,12 @@ export async function buyCourse(
     // console.log("PRINTING orderResponse", orderResponse);
     //options
     const options = {
-      key: process.env.RAZORPAY_KEY,
+      key: "rzp_test_CooC8MdcPw1rkA",
       currency: orderResponse.data.data.currency,
       amount: `${orderResponse.data.data.amount}`,
       order_id: orderResponse.data.data.id,
       name: "StudyNotion",
       description: "Thank You for Purchasing the Course",
-      // image: rzpLogo,            // --> to do for svg error
       prefill: {
         name: `${userDetails.firstName}`,
         email: userDetails.email,
@@ -83,7 +82,6 @@ export async function buyCourse(
         verifyPayment({ ...response, courses }, token, navigate, dispatch);
       },
     };
-    //miss hogya tha
     const paymentObject = new window.Razorpay(options);
     paymentObject.open();
     paymentObject.on("payment.failed", function (response) {

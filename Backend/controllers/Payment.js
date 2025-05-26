@@ -16,6 +16,7 @@ const CourseProgress = require("../models/CourseProgress");
 exports.capturePayment = async (req, res) => {
   const { courses } = req.body;
   const userId = req.user.id;
+
   if (courses.length === 0) {
     return res.json({ success: false, message: "Please Provide Course ID" });
   }
@@ -58,9 +59,8 @@ exports.capturePayment = async (req, res) => {
   };
 
   try {
-    // Initiate the payment using Razorpay
     const paymentResponse = await instance.orders.create(options);
-    console.log("payment ->", paymentResponse);
+    // console.log("payment ->", paymentResponse);
     res.json({
       success: true,
       data: paymentResponse,
