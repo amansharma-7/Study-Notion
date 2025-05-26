@@ -83,8 +83,6 @@ export default function CourseInformationForm() {
     // console.log(data)
 
     if (editCourse) {
-      const currentValues = getValues();
-
       if (isFormUpdated()) {
         const currentValues = getValues();
         const formData = new FormData();

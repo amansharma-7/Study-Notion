@@ -14,8 +14,6 @@ import { HiSearch } from "react-icons/hi";
 import { useNavigate } from "react-router";
 
 const NavBar = () => {
-  const dispatch = useDispatch();
-
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.profile);
   const { totalItems } = useSelector((state) => state.cart);

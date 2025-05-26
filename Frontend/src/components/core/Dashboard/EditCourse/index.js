@@ -5,14 +5,12 @@ import { useParams } from "react-router-dom";
 import { fetchCourseDetails } from "../../../../services/operations/courseDetailsAPI";
 import { setCourse, setEditCourse } from "../../../../slices/courseSlice";
 import RenderSteps from "../AddCourse/RenderSteps";
-import { RxTokens } from "react-icons/rx";
 
 export default function EditCourse() {
   const dispatch = useDispatch();
   const { courseId } = useParams();
   const { course } = useSelector((state) => state.course);
   const [loading, setLoading] = useState(false);
-  const { token } = useSelector((state) => state.auth);
   // console.log(token);
   useEffect(() => {
     (async () => {
