@@ -22,12 +22,7 @@ database();
 app.use(express.json());
 app.use(cookieParser());
 app.use(
-  cors(
-    {
-    origin: 'https://studynotio0.netlify.app', 
-    credentials: true, 
-  }
-  )
+  cors();
 );
 
 app.use(
